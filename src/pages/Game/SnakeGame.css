@@ -1,0 +1,81 @@
+.snake-page {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: #f4f6fb;
+}
+
+.snake-card {
+  width: 100%;
+  max-width: 520px;
+  padding: 28px;
+  border-radius: 20px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.snake-card h2 {
+  margin-bottom: 18px;
+}
+
+.snake-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.snake-info button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #111827;
+  color: #fff;
+  cursor: pointer;
+}
+
+.snake-board {
+  display: grid;
+  grid-template-columns: repeat(20, 20px);
+  grid-template-rows: repeat(20, 20px);
+  gap: 1px;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 14px;
+  background: #111827;
+}
+
+.snake-cell {
+  width: 20px;
+  height: 20px;
+  background: #e5e7eb;
+  border-radius: 3px;
+}
+
+.snake-body {
+  background: #22c55e;
+}
+
+.snake-head {
+  background: #15803d;
+}
+
+.snake-food {
+  background: #ef4444;
+}
+
+.game-over {
+  margin-top: 16px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #ef4444;
+}
+
+.snake-help {
+  margin-top: 14px;
+  color: #666;
+}

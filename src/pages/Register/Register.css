@@ -1,0 +1,212 @@
+/* Register.css */
+
+.register-container {
+  min-height: calc(100vh - 80px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 20px;
+
+  background-color: #f5f7fb;
+}
+
+.register-form {
+  width: 100%;
+  max-width: 420px;
+
+  padding: 40px;
+
+  border-radius: 16px;
+
+  background-color: white;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.register-title {
+  margin-bottom: 32px;
+
+  text-align: center;
+
+  font-size: 32px;
+  font-weight: 700;
+
+  color: #222;
+}
+
+.register-group {
+  margin-bottom: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.register-group label {
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #333;
+}
+
+.register-group input {
+  height: 48px;
+
+  padding: 0 14px;
+
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  font-size: 15px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.register-group input:focus {
+  outline: none;
+
+  border-color: #4f8cff;
+
+  box-shadow:
+    0 0 0 4px rgba(79, 140, 255, 0.15);
+}
+
+.register-submit-btn {
+  width: 100%;
+  height: 50px;
+
+  margin-top: 12px;
+
+  border: none;
+  border-radius: 10px;
+
+  background-color: #4f8cff;
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.register-submit-btn:hover {
+  background-color: #3d73d9;
+}
+
+.register-submit-btn:active {
+  transform: scale(0.98);
+}
+
+.required-label::after {
+  content: "*";
+
+  margin-left: 4px;
+
+  color: #ff4d4f;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.error-input {
+  border-color: #ff4d4f !important;
+}
+
+.error-text {
+  margin: 6px 0 0;
+  color: #ff4d4f;
+  font-size: 13px;
+}
+
+.input-with-button {
+  display: flex;
+  gap: 10px;
+}
+
+.input-with-button input {
+  flex: 1;
+  min-width: 0;
+}
+
+.check-id-btn {
+  flex-shrink: 0;
+
+  height: 48px;
+  padding: 0 16px;
+
+  border: none;
+  border-radius: 10px;
+
+  background-color: #4f8cff;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.check-id-btn:hover {
+  background-color: #3d73d9;
+}
+
+.check-id-btn:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 480px) {
+  .register-container {
+    min-height: auto;
+    padding: 24px 16px;
+    align-items: flex-start;
+  }
+
+  .register-form {
+    padding: 28px 20px;
+    border-radius: 14px;
+  }
+
+  .register-title {
+    margin-bottom: 24px;
+    font-size: 26px;
+  }
+
+  .register-group {
+    margin-bottom: 16px;
+  }
+
+  .register-group input {
+    height: 44px;
+    font-size: 14px;
+  }
+
+  .input-with-button {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .check-id-btn {
+    width: 100%;
+    height: 44px;
+  }
+
+  .register-submit-btn {
+    height: 46px;
+    font-size: 15px;
+  }
+}
