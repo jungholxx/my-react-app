@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Pagination from "../../components/Pagination/Pagination";
@@ -11,10 +11,17 @@ function Board() {
 
   const pageSize = 5;
 
+  const allPosts = useMemo(() => {
+    const savedPosts =
+      JSON.parse(localStorage.getItem("board-posts")) || [];
+
+    return [...savedPosts, ...boardPosts];
+  }, []);
+
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
 
-  const pagePosts = boardPosts.slice(startIndex, endIndex);
+  const pagePosts = allPosts.slice(startIndex, endIndex);
 
   const getViewCount = (post) => {
     const savedData =
@@ -40,13 +47,15 @@ function Board() {
             <div className="board-card">
               <div className="board-card-top">
                 <span className="board-id">#{post.id}</span>
-                <span className="board-views">조회수 {getViewCount(post)}</span>
+                <span className="board-views">
+                  조회수 {getViewCount(post)}
+                </span>
               </div>
 
               <h3>{post.title}</h3>
 
               <p className="board-summary">
-                {post.summary}
+                {post.summary || post.content}
               </p>
 
               <div className="board-meta">
@@ -69,7 +78,7 @@ function Board() {
 
       <Pagination
         currentPage={currentPage}
-        totalCount={boardPosts.length}
+        totalCount={allPosts.length}
         pageSize={pageSize}
         onPageChange={setCurrentPage}
       />

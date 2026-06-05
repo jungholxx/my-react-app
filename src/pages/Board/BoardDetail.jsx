@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import { boardPosts } from "../../data/boardData";
@@ -11,14 +11,21 @@ function BoardDetail() {
 
   const currentId = Number(id);
 
-  const currentIndex = boardPosts.findIndex(
+  const allPosts = useMemo(() => {
+    const savedPosts =
+      JSON.parse(localStorage.getItem("board-posts")) || [];
+
+    return [...savedPosts, ...boardPosts];
+  }, []);
+
+  const currentIndex = allPosts.findIndex(
     (item) => item.id === currentId
   );
 
-  const post = boardPosts[currentIndex];
+  const post = allPosts[currentIndex];
 
-  const prevPost = boardPosts[currentIndex - 1];
-  const nextPost = boardPosts[currentIndex + 1];
+  const prevPost = allPosts[currentIndex - 1];
+  const nextPost = allPosts[currentIndex + 1];
 
   const [views, setViews] = useState(0);
 

@@ -17,12 +17,17 @@ function Grid() {
   const navigate = useNavigate();
 
   const [rowData, setRowData] = useState(() => {
-    const savedData =
+    const savedViews =
       JSON.parse(localStorage.getItem("board-views")) || {};
 
-    return boardPosts.map((post) => ({
+    const savedPosts =
+      JSON.parse(localStorage.getItem("board-posts")) || [];
+
+    const allPosts = [...savedPosts, ...boardPosts];
+
+    return allPosts.map((post) => ({
       ...post,
-      views: savedData[post.id] ?? post.views,
+      views: savedViews[post.id] ?? post.views,
     }));
   });
 
